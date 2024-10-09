@@ -23,8 +23,8 @@ public class Main {
 
         while (k-- > 0) {
             st = new StringTokenizer(br.readLine());
-            int x = 1;
             int y = Integer.parseInt(st.nextToken()) - 1;
+            int x = 1;
             int exit = Integer.parseInt(st.nextToken());
 
             forest[x][y] = exit;
@@ -76,7 +76,6 @@ public class Main {
             if (isOutOfMap()) {
                 init();
             } else {
-                System.out.println(answer);
                 answer += bfs(x, y);
             }
         }
@@ -166,11 +165,10 @@ public class Main {
         int max = Integer.MIN_VALUE;
 
         boolean[][] visited = new boolean[r+3][c];
-        Queue<int[]> queue = new LinkedList<>();
+        Queue<int[]> queue = new ArrayDeque<>();
         queue.add(new int[]{x, y});
 
         visited[x][y] = true;
-
 
         while (!queue.isEmpty()) {
             int[] curr = queue.poll();
@@ -192,11 +190,11 @@ public class Main {
                 queue.offer(new int[]{nx, ny});
                 visited[nx][ny] = true;
                 max = Math.max(max, nx);
-
             }
         }
         return max - 2;
     }
+
 
     private static void init() {
         forest = new int[r+3][c];
