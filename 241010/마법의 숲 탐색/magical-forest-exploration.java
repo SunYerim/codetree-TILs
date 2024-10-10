@@ -7,8 +7,8 @@ public class Main {
     static int r, c, k;
     static int[][] forest;
     // 동서남북
-    static int[] dx = {0, 1, 0, -1}; // 북동남서
-    static int[] dy = {-1, 0, 1, 0};
+    static int[] dy = {0, 1, 0, -1}; // 북동남서
+    static int[] dx = {-1, 0, 1, 0};
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -17,6 +17,7 @@ public class Main {
         r = Integer.parseInt(st.nextToken());
         c = Integer.parseInt(st.nextToken());
         k = Integer.parseInt(st.nextToken());
+
 
         init();
         int answer = 0;
@@ -49,8 +50,8 @@ public class Main {
                     movedFlag = true;
                 }
                 // 서
-                 else if (check(x, y, 3)) {
-                     // move
+                else if (check(x, y, 3)) {
+                    // move
                     move (x, y, 3);
                     x += dx[3];
                     y += dy[3];
@@ -197,10 +198,9 @@ public class Main {
 
 
     private static void init() {
-        forest = new int[r+3][c];
+        forest = new int[r + 3][c];
         for (int[] line : forest) {
             Arrays.fill(line, -1);
         }
     }
-
 }
