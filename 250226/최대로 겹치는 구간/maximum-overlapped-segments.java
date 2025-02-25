@@ -15,7 +15,7 @@ public class Main {
             x2[i] = sc.nextInt() + 100;
 
             // check
-            for (int j = x1[i]; j <= x2[i]; j++) {
+            for (int j = x1[i]; j < x2[i]; j++) {
                 checked[j]++;
             }
         }
