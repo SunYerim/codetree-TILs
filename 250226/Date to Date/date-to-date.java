@@ -16,12 +16,12 @@ public class Main {
             elapsedDay++;
             d1++;
 
-            if (d1 > numOfDays[m2]) {
+            if (d1 > numOfDays[m1]) {
                 m1++;
                 d1 = 1;
             }
         }
 
-        System.out.println(elapsedDay);
+        System.out.println(elapsedDay + 1);
     }
 }
