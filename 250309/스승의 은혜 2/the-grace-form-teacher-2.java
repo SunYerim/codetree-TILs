@@ -21,25 +21,23 @@ public class Main {
         // sort
         Arrays.sort(prices);
 
+        int maxStudents = 1;
+        int sum = 0;
+        int maxDiscountIndex = -1;
+
         // 계산
-        int idx = 0;
-        int curr = 0;
-        while (curr <= B) {
-            int tmp = curr + prices[idx];
-            int tmp2 = curr + prices[idx] / 2;
-
-            if (tmp > B && tmp2 < B) {
-                curr += tmp2;
+        for (int i = 0; i < N; i++) {
+            if (sum + prices[i] > B) {
+                maxDiscountIndex = i;
+                break;
             }
-            else {
-                curr += tmp;
-            }
-
-            idx++;
-
+            sum += prices[i];
+            maxStudents++;
         }
 
-        System.out.println(idx+1);
+        
+
+        System.out.println(maxDiscountIndex+1);
 
     }
 }
