@@ -18,36 +18,30 @@ public class Main {
         Arrays.sort(prices);
 
         // 2. 할인 없이 최대 몇 명까지 살 수 있는지 계산
-        int maxStudents = 1;
+        int maxStudents = 0;
         int totalCost = 0;
-
+        
         for (int i = 0; i < N; i++) {
             if (totalCost + prices[i] > B) break;
             totalCost += prices[i];
             maxStudents++;
         }
 
-        int[] halfPrice = new int[N];
-        Arrays.fill(halfPrice, -1);
-        
         // 3. 각 선물을 할인했을 때 최대 학생 수 갱신
         for (int i = 0; i < N; i++) {
             int discountedPrice = prices[i] / 2;
-            int total = discountedPrice;
-            int students = 1;
-            for (int j = i + 1; j < N; j++) {
-                if (total > B) {
-                    halfPrice[i] = students;
-                    students++;
-                    break;
-                }
-                total += prices[i];
-            }
-        }
+            int tempTotal = discountedPrice; // 할인된 가격으로 구매
+            int tempStudents = 1; 
 
-        // 최대 학생수
-        for (int i = 0; i < N; i++) {
-            maxStudents = Math.max(maxStudents, halfPrice[i]);
+            for (int j = 0; j < N; j++) {
+                if (i == j) continue; // 할인한 제품 제외
+                
+                if (tempTotal + prices[j] > B) break;
+                tempTotal += prices[j];
+                tempStudents++;
+            }
+
+            maxStudents = Math.max(maxStudents, tempStudents);
         }
 
         System.out.println(maxStudents);
