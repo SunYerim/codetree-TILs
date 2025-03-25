@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Main {
     static final int MAX_N = 31;
-    static final int MAX_L = 31;
+    static final int MAX_L = 41;
 
     static int l, n, q;
     static int[][] info = new int[MAX_L][MAX_N];
