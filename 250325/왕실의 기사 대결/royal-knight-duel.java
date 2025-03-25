@@ -6,7 +6,7 @@ public class Main {
     static final int MAX_L = 41;
 
     static int l, n, q;
-    static int[][] info = new int[MAX_L][MAX_N];
+    static int[][] info = new int[MAX_L][MAX_L];
     static int[] bef_k = new int[MAX_N];
     static int[] r = new int[MAX_N], c = new int[MAX_N], h = new int[MAX_N], w = new int[MAX_N], k = new int[MAX_N];
     static int[] nr = new int[MAX_N], nc = new int[MAX_N];
